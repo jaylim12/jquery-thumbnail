@@ -9,26 +9,28 @@
 			margin: '2px',
 		}, options);
 
-		return this.each(function(i,img) {
-			var $img = $(img);
-			if (!$img.is('img'))
-				$.error("no image found");
+		return this.each(function(i,div) {
+			var $div = $(div);
 
-			$img.css('width', (parseInt(opts.size) * 2) + 'px');
-			$img.parent().css({
-				width: parseInt(opts.size) + 'px',
-				height: parseInt(opts.size) + 'px',
-				margin: parseInt(opts.margin) + 'px',
-				overflow: 'hidden',
-				display: 'block',
-				float: 'left'
-			});
+			$div.find('img').each(function(j,img) {
+				var $img = $(img);
 
-			$img.load(function() {
-				var $this = $(this);
-				$this.css({
-					'margin-left': (-($this.width() - parseInt(opts.size)) / 2) + 'px',
-					'margin-top': (-($this.height() - parseInt(opts.size)) / 2) + 'px'
+				$img.css('width', (parseInt(opts.size) * 2) + 'px');
+				$img.wrap($('<div>').css({
+					width: parseInt(opts.size) + 'px',
+					height: parseInt(opts.size) + 'px',
+					margin: parseInt(opts.margin) + 'px',
+					overflow: 'hidden',
+					display: 'block',
+					float: 'left'
+				}));
+
+				$img.load(function() {
+					var $this = $(this);
+					$this.css({
+						'margin-left': (-($this.width() - parseInt(opts.size)) / 2) + 'px',
+						'margin-top': (-($this.height() - parseInt(opts.size)) / 2) + 'px'
+					});
 				});
 			});
 		});

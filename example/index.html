@@ -4,14 +4,42 @@
 	<script type="text/javascript" src="../src/jquery.thumbnail.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$('img').thumbnail({size: 100, margin: 2});
+		$('.thumbnail').thumbnail({size: 50, margin: 2});
 	})
 	</script>
+	<style type="text/css">
+	.clear {
+		clear: both;
+	}
+	</style>
 </head>
 <body style="padding: 200px;">
-	<div><img src="images/img1.jpg"/></div>
-	<div><img src="images/img2.jpg"/></div>
-	<div><img src="images/img3.jpg"/></div>
-	<div><img src="images/img4.jpg"/></div>
+	<div class="thumbnail">
+		<img src="images/img1.jpg"/>
+		<img src="images/img2.jpg"/>
+		<img src="images/img3.jpg"/>
+		<img src="images/img4.jpg"/>
+	</div>
+	<div class="clear"></div>
+	<div class="thumbnail">
+		<img src="images/img2.jpg"/>
+		<img src="images/img3.jpg"/>
+		<img src="images/img4.jpg"/>
+		<img src="images/img1.jpg"/>
+	</div>
+	<div class="clear"></div>
+	<div class="thumbnail">
+		<img src="images/img3.jpg"/>
+		<img src="images/img4.jpg"/>
+		<img src="images/img1.jpg"/>
+		<img src="images/img2.jpg"/>
+	</div>
+	<div class="clear"></div>
+	<div class="thumbnail">
+		<img src="images/img4.jpg"/>
+		<img src="images/img1.jpg"/>
+		<img src="images/img2.jpg"/>
+		<img src="images/img3.jpg"/>
+	</div>
 </body>
 </html>
